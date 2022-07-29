@@ -1,0 +1,114 @@
+<!-- REVOLUTION SLIDER -->
+<div class="jumbotron" style="margin: 0 0;padding: 7rem 4rem 2rem;">
+  <h2 class="display-4">Reaching for the Stars since 1976</h2>
+  <hr class="my-4">
+</div>
+<!-- /REVOLUTION SLIDER -->
+<!-- Parallax -->
+<section class="parallax parallax-1" style="background-image: url('r_assets/M.jpg');">
+	<div class="overlay dark-3">
+		<!-- dark overlay [1 to 9 opacity] -->
+	</div>
+	<div class="container">
+		<div class="text-center">
+			<h2 class="fs-40 fw-300">Reaching for the Stars since 1976</h2>
+			<%= link_to 'GET A QUOTE', new_quote_path, class:'btn btn-default btn-lg' %> &nbsp; OR &nbsp; <a class="btn btn-primary btn-lg" href="#contact">CONTACT US</a> </div>
+	</div>
+</section>
+<!-- /Parallax -->
+<!-- CONTACT -->
+<section id="contact" style="padding: 50px 0px;">
+	<div class="container">
+		<header class="text-center mb-60">
+			<h2>Contact Us</h2>
+			<p class="lead font-lato">Any unwarranted contact will result in legal action.</p>
+			<hr /> </header>
+		<div class="row">
+			<!-- FORM -->
+			<div class="col-md-8 col-sm-8">
+				<h3>Wanna let us in on the <strong><em>goods? </em></strong></h3>
+				<!-- Alert Success -->
+				<div id="alert_success" class="alert alert-success mb-30">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Thank You!</strong> Your message successfully sent! </div>
+				<!-- /Alert Success -->
+				<!-- Alert Failed -->
+				<div id="alert_failed" class="alert alert-danger mb-30">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>[SMTP] Error!</strong> Internal server error! </div>
+				<!-- /Alert Failed -->
+				<!-- Alert Mandatory -->
+				<div id="alert_mandatory" class="alert alert-danger mb-30">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Sorry!</strong> You need to complete all mandatory (*) fields! </div>
+				<!-- /Alert Mandatory -->
+		<%= form_with(model: @lead, url: "/create_lead") do |form| %>
+			<div class="row">
+				<div class="field col-md-4">
+					<%= form.label :name %>
+					<%= form.text_field :name, class: "form-control pointer" %>
+				</div>
+				<div class="field col-md-4">
+					<%= form.label :company_name %>
+					<%= form.text_field :company_name, class: "form-control pointer" %>
+				</div>
+				<div class="field col-md-4">
+					<%= form.label :email %>
+					<%= form.text_field :email, class: "form-control pointer" %>
+				</div>
+				<div class="field col-md-4">
+					<%= form.label :phone %>
+					<%= form.text_field :phone, class: "form-control pointer" %>
+				</div>
+				<div class="field col-md-4">
+					<%= form.label :project_name %>
+					<%= form.text_field :project_name, class: "form-control pointer" %>
+				</div>
+				<div class="field col-md-4">
+					<%= form.label :date %>
+					<%= form.text_field :date, :readonly => true, value: Date.today, class: "form-control pointer" %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="field col-md-8">
+					<%= form.label :description %>
+					<%= form.text_field :description, class: "form-control pointer" %>
+				</div>
+				<div class="field col-md-4">
+					<%= form.label :department %>
+					<%= form.select(:department, ["Support", "HR", "Juice", "Elevator Heads", "IT"], {}, { :style => "padding: 0px 4 px", class: "form-control pointer"})%>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="field col-md-12">
+					<%= form.label :message %>
+					<%= form.text_area :message, rows: 10, class: "form-control pointer"%>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="field col-md-12">
+					<%= form.label :file %>
+					<%= form.file_field :file %>
+				</div>
+			</div>
+
+
+			<div class="actions">
+				<%= form.submit %>
+			</div>
+		<% end %>
+		
+			</div>
+			<!-- /FORM -->
+			<!-- INFO -->
+			<div class="col-md-4 col-sm-4">
+				<h2>Visit Us</h2>
+				<div id="map2" class="h-400"></div>
+				<hr />
+				<p> <span class="block"><strong>Address:</strong> 4468 Wellington St Suite 204, Verdun, Quebec H4G 1W5</span> <span class="block"><strong>Phone:</strong> <a href="tel:(418) 555-1234">(418) 555-1234</a></span> <span class="block"><strong>Email:</strong> <a href="mailto:info@codeboxx.biz">info@codeboxx.biz</a></span> </p>
+			</div>
+			<!-- /INFO -->
+		</div>
+	</div>
+</section>
+<!-- /CONTACT -->

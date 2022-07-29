@@ -1,0 +1,7 @@
+{
+  "name": "Rocket_Elevators_Information_System",
+  "private": true,
+  "dependencies": {
+    "dropbox": "^10.31.0"
+  }
+}

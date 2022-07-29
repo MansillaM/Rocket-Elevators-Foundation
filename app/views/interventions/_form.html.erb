@@ -1,0 +1,79 @@
+<%= form_with(model: intervention, local: true) do |f| %>
+
+  <% if intervention.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(intervention.errors.count, "error") %> prohibited this intervention from being saved:</h2>
+
+      <ul>
+      <% intervention.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<center> 
+  <h1>
+    <bold> 
+        INTERVENTION TICKET
+    </bold>
+  </h1> 
+
+      <%= f.label :customer_id, "Select Customer" %> 
+      <%= f.collection_select :customer_select, Customer.order(:name), :id, :name %> 
+
+      <%# <label for="intervention_building_id">Select Building</label> %>
+      <select id="intervention_building_select">
+      </select>
+
+      <select id="intervention_batterie_id">
+      </select>
+
+      <select id="intervention_column_id" >
+      </select>
+
+      <select id="intervention_elevator_id">
+      </select>
+  <!--
+  <div class="selectBuilding" id='building_id'>
+    <%= f.label :building_select %> 
+    <%= f.collection_select :building_select, Building.order(:id), :id, :id  %>
+  </div>
+-->
+
+  <%# <div class="selectBattery" id='battery_id'>
+    <center>
+      <%= f.label :battery_id %> 
+      <%# <%= f.collection_select :battery_id, Battery.order(:id), :building_id, :id %> 
+    <%# </center> %>
+  <%# </div>   %>
+
+  <%# <div class="selectColumn" id='column_id'>
+    <center>
+      <%= f.label :column_id %> 
+      <%# <%= f.collection_select :column_id, Column.order(:id), :battery_id, :id %>  
+    <%# </center> %>
+  <%# </div> %> 
+
+  <%# <div class="allElevators" id='elevator_id'>
+    <center>
+      <%= f.label :elevator_id %> 
+      <%# <%= f.collection_select :elevator_id, Elevator.order(:id), :column_id, :id  %> 
+    <%# </center> %>
+  <%# </div> %> 
+
+  <div class="allEmployees">
+      <%= f.label :employee_id, "Top Employees" %> 
+      <%= f.collection_select :employee_id, Employee.order(:id), :title, :title %> 
+  </div>
+
+  <div class="longMessage">
+      <%= f.label :report, "Description" %>
+      <%= f.text_area :report, :cols => 50, :rows => 10, :style => 'resize: none'%>
+  </div>
+
+  <div class="actions">
+      <%= f.submit %>
+  </div>
+</center>
+<% end %>
+
