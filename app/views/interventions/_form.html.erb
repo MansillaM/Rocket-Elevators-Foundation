@@ -13,46 +13,44 @@
   <% end %>
 <center> 
 
-
-
   <h1>
     <bold> 
         INTERVENTION TICKET
     </bold>
   </h1> 
 
+  <div>
       <%= f.label :customer_id, "Select Customer" %> 
       <%= f.collection_select :customer_id, Customer.order(:name), :id, :name %> 
+  </div>
 
+  <br>
+
+  <div>
       <select name="intervention[building_id]" id="intervention_building_id">
       </select>
+  </div>
 
+  <br>
+
+  <div>
       <select name="intervention[battery_id]" id="intervention_battery_id">
       </select>
+  </div>
 
+  <br>
+
+  <div>
       <select name="intervention[column_id]" id="intervention_column_id">
       </select>
+  </div>
 
+  <br>
+
+  <div>
       <select name="intervention[elevator_id]" id="intervention_elevator_id">
       </select>
-  <%# <div class="selectBuilding" id='building_id'>
-    <%= f.label :building_select %> 
-    <%# <%= f.collection_select :building_select, Building.order(:id), :id, :id  %> 
-  <%# </div> %> 
-
-  <%# <div class="selectBattery" id='battery_id'>
-    <center>
-      <%= f.label :battery_id %> 
-      <%# <%= f.collection_select :battery_id, Battery.order(:id), :building_id, :id %> 
-    <%# </center> %>
-  <%# </div>   %>
-
-  <%# <div class="selectColumn" id='column_id'>
-    <center>
-      <%= f.label :column_id %> 
-      <%# <%= f.collection_select :column_id, Column.order(:id), :battery_id, :id %>  
-    <%# </center> %>
-  <%# </div> %> 
+  </div>
 
   <div class="allEmployees">
       <%= f.label :employee_id, "Top Employees" %> 

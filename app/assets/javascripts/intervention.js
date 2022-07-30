@@ -55,10 +55,10 @@ function getCustomerBuildings(customerId) {
             let building_select = $("#intervention_building_id")
             building_select.empty()
             building_select.show()
+            building_select.append("<option value=" + '0' + ">" + 'Building' + "</option>")
             building_select.append("<option value=" + '0' + ">" + 'NONE' + "</option>")
             $.each(building, function () {
-                // building_select.append("<option value=" + '0' + ">" + 'NONE' + "</option>")
-                building_select.append("<option value=" + building[0].address_id + ">" + building[0].address_id + "</option>")
+                building_select.append("<option value=" + building[0].address_id + ">" + "ADDRESS ID: " +building[0].address_id + "</option>")
             })
         },
         error: function (data) {
@@ -79,10 +79,10 @@ function getBuildingBattery(buildingId) {
             let battery_select = $("#intervention_battery_id")
             battery_select.empty()
             battery_select.show()
+            battery_select.append("<option value=" + '0' + ">" + 'Battery' + "</option>")
             battery_select.append("<option value=" + '0' + ">" + 'NONE' + "</option>")
             $.each(batterie, function () {
-                // battery_select.append("<option value=" + '0' + ">" + 'NONE' + "</option>")
-                battery_select.append("<option value=" + batterie[0].id + ">" + batterie[0].id + "</option>")
+                battery_select.append("<option value=" + batterie[0].id + ">" + "BATTERY ID: " +batterie[0].id + "</option>")
             })
         },
         error: function (data) {
@@ -103,10 +103,10 @@ function getBatteryColumn(batteryId) {
             let column_select = $("#intervention_column_id")
             column_select.empty()
             column_select.show()
+            column_select.append("<option value=" + '0' + ">" + 'Column' + "</option>")
             column_select.append("<option value=" + '0' + ">" + 'NONE' + "</option>")
             $.each(column, function () {
-                // column_select.append("<option value=" + '0' + ">" + 'NONE' + "</option>")
-                column_select.append("<option value=" + column[0].id + ">" + column[0].id + "</option>")
+                column_select.append("<option value=" + column[0].id + ">" + "COLUMN ID: " +column[0].id + "</option>")
             })
         },
         error: function (data) {
@@ -127,14 +127,11 @@ function getColumnElevator(columnId) {
             let elevator_select = $("#intervention_elevator_id")
             elevator_select.empty()
             elevator_select.show()
+            elevator_select.append("<option value=" + '0' + ">" + 'Elevator' + "</option>")
             elevator_select.append("<option value=" + '0' + ">" + 'NONE' + "</option>")
-            console.log("### looping batteries")
             $.each(elevator, function () {
-                console.log(elevator)
-                // elevator_select.append("<option value=" + '0' + ">" + 'NONE' + "</option>")
-                elevator_select.append("<option value=" + elevator[0].id + ">" + elevator[0].id + "</option>")
+                elevator_select.append("<option value=" + elevator[0].id + ">" + "ELEVATOR ID: " +elevator[0].id + "</option>")
             })
-            console.log("### donedeal")
         },
         error: function (data) {
             alert("Error!")
