@@ -326,7 +326,6 @@ Intervention.connection.execute('ALTER TABLE interventions AUTO_INCREMENT = 1')
     column_id: columnID(),
     elevator_id: elevatorID(),
     employee_id: employeeId(),
-    start_date: null,
     end_date: Faker::Date.between(from: '2022-06-26', to: '2023-06-26'),
     result: 'Incomplete',
     report: 'Description field',
