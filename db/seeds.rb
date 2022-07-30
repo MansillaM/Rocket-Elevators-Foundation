@@ -65,7 +65,7 @@ User.create!([{
 }])
 
 
-10.times do
+100.times do
   User.create!(
     email: Faker::Internet.unique.email,
     password: "juicejuice")
@@ -148,7 +148,7 @@ Employee.create!([{
 Quote.destroy_all
 Quote.connection.execute('ALTER TABLE quotes AUTO_INCREMENT = 1')
 
-10.times do
+100.times do
   Quote.create!(
     building_type: type(),
     price: elevatorsModel(),
@@ -168,7 +168,7 @@ end
 Lead.destroy_all
 Lead.connection.execute('ALTER TABLE leads AUTO_INCREMENT = 1')
 departments = ["Support", "HR", "Juice", "Elevator Heads", "IT"]
-10.times do
+20.times do
   Lead.create!(
     name: Faker::Name.unique.name.gsub(/\'/, ''),
     company_name: Faker::Company.unique.name.gsub(/\'/, ''),
@@ -190,7 +190,7 @@ data = JSON.parse(file)
 # puts data
 
 
-10.times do |i|
+20.times do |i|
   address = data['addresses'][i]
   Address.create!(
     address_type: data['address_type'][rand(4)],
@@ -251,7 +251,7 @@ BuildingDetail.destroy_all
 BuildingDetail.connection.execute('ALTER TABLE building_details AUTO_INCREMENT = 1')
 
 
-10.times do
+300.times do
   BuildingDetail.create!(
     building_id: buildingID(),
     key: Faker::Lorem.sentence(word_count: 1),
@@ -264,7 +264,7 @@ Battery.destroy_all
 Battery.connection.execute('ALTER TABLE batteries AUTO_INCREMENT = 1')
 
 
-10.times do
+300.times do
   Battery.create!(
     building_id: buildingID(),
     building_type: type(),
@@ -282,7 +282,7 @@ end
 Column.destroy_all
 Column.connection.execute('ALTER TABLE columns AUTO_INCREMENT = 1')
 
-10.times do
+300.times do
   Column.create!(
     battery_id: batteryID(),
     building_type: type(),
@@ -298,7 +298,7 @@ Elevator.destroy_all
 Elevator.connection.execute('ALTER TABLE elevators AUTO_INCREMENT = 1')
 
 
-10.times do
+300.times do
   Elevator.create!(
     column_id: columnID() ,
     serial_number: Faker::IDNumber.spanish_foreign_citizen_number,
@@ -317,7 +317,7 @@ end
 Intervention.destroy_all
 Intervention.connection.execute('ALTER TABLE interventions AUTO_INCREMENT = 1')
 
-10.times do
+5.times do
   Intervention.create!(
     author: "FreshDesk Employee",
     customer_id: customerID(),
@@ -326,7 +326,7 @@ Intervention.connection.execute('ALTER TABLE interventions AUTO_INCREMENT = 1')
     column_id: columnID(),
     elevator_id: elevatorID(),
     employee_id: employeeId(),
-    start_date: Faker::Date.between(from: '2019-01-23', to: '2022-06-25'),
+    start_date: null,
     end_date: Faker::Date.between(from: '2022-06-26', to: '2023-06-26'),
     result: 'Incomplete',
     report: 'Description field',

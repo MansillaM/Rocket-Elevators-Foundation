@@ -5,8 +5,8 @@ class InterventionsController < ApplicationController
     #     @intervention = Intervention.all
     #   end
     
-    #   def show
-    #   end
+      def show
+      end
     
       def new
         @intervention = Intervention.new
@@ -59,11 +59,39 @@ class InterventionsController < ApplicationController
 
 
   def create
+    
     @intervention = Intervention.new(intervention_params)
+    @intervention.author = 1
+    @intervention.status = "Pending"
+    @intervention.result = "Incomplete"
+    @intervention.start_date = DateTime.now
+    @intervention.end_date = ""
+    
     respond_to do |format|
         if @intervention.save
-        format.html { redirect_to interventions_url(@intervention), notice: "intervention was successfully created." }
-        format.json { render :show, status: :created, location: @intervention }
+
+        intervention_form = {
+          email: "rocket_elevator_client@test.com", 
+          priority: 1, 
+          status: 2,
+          type: "Incident",
+          subject: "From #{@intervention.customer_id}",
+          description: "BuildingID : #{@intervention.building_id}, BatteryID: #{@intervention.battery_id}, ColumnID: #{@intervention.column_id}, ElevatorID: #{@intervention.elevator_id}, TheEmployee: #{@intervention.employee_id}, Description: #{@intervention.report}",
+        }.to_json
+        intervention_quote = RestClient::Request.execute(
+          method: :post, 
+          url: "https://rocketelevator-support.freshdesk.com/api/v2/tickets",
+          user: ENV['FRESHDESK_KEY'],
+          password: "x",
+          headers: {
+            content_type: "application/json"
+          },
+          payload: intervention_form
+        )
+
+
+        format.html { redirect_to root_path, notice: "intervention was successfully created." }
+        # format.json { render :show, status: :created, location: @intervention }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @intervention.errors, status: :unprocessable_entity }
@@ -92,7 +120,7 @@ class InterventionsController < ApplicationController
     end
   end
 
-  # private
+  private
   # #   # Use callbacks to share common setup or constraints between actions.
     def set_intervention
       @intervention = Intervention.find(params[:id])
