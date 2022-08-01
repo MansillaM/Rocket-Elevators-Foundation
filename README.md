@@ -20,5 +20,3 @@ Once completed the data will also be sent to my database table called 'Intervent
 <br>
 
 Please follow this link for my REST api's project where you will find everything you need ---> "https://github.com/MansillaM/Rocket-Elevators-Foundation2.git"
-
-<b>Ps. Make sure you select a Customer that contains everything or you will get an error message.</b>
