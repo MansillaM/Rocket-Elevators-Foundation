@@ -10,7 +10,7 @@ You will need this for my project:
  
 <br>
 
-For this weeks project I created a new intervention page, a new intervention form, created a new intervention table for Mysql database and implemented a FreshDesk api to my form.
+For this weeks project I created a new intervention page, a new intervention form, a new intervention table for Mysql database and implemented a FreshDesk api to my form.
 
 <br>
 
